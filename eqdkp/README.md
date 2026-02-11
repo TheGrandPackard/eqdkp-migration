@@ -25,7 +25,7 @@ tar cvzf kingdo16_eqdkp.sql.tar.gz kingdo16_eqdkp.sql
 
 ```sh
 mkdir migration && cd migration
-scp ubuntu@172.26.6.228@/home/ubuntu/migration/kingdo16_eqdkp.sql.tar.gz .
+scp ubuntu@172.26.6.228:/home/ubuntu/migration/kingdo16_eqdkp_2026_02_10.sql.tar.gz .
 tar xvzf kingdo16_eqdkp.sql.tar.gz
 mysql -u root -p
 CREATE DATABASE kingdo16_eqdkp;
@@ -33,7 +33,7 @@ CREATE USER 'kingdo16_dbadmin'@'localhost' IDENTIFIED BY 'Meowmeowmeow1!';
 GRANT ALL PRIVILEGES ON kingdo16_eqdkp.* TO 'kingdo16_dbadmin'@'localhost';
 FLUSH PRIVILEGES;
 exit;
-mysql -u root -p < kingdo16_eqdkp.sql
+mysql -u root -p kingdo16_eqdkp < kingdo16_eqdkp.sql
 ```
 
 ## Apache
@@ -68,9 +68,9 @@ tar cvzf eqdkp_2026_02_08.tar.gz /var/www/html/eqdkp
 ```
 
 ```sh
-scp ubuntu@172.26.6.228@/home/ubuntu/migration/eqdkp_2026_02_08.tar.gz .
-tar xvzf eqdkp_2026_02_08.tar.gz
-mv var/www/html/eqdkp /var/www/html
+scp ubuntu@172.26.6.228:/var/www/html/eqdkp_2026_02_10.tar.gz .
+tar xvzf eqdkp_2026_02_10.tar.gz
+sudo chown -R www-data:www-data eqdkp
 ```
 
 ## Crontab
