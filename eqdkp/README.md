@@ -51,6 +51,12 @@ sudo a2enmod proxy_http
 sudo systemctl restart apache2
 ```
 
+Set PHP configs and restart apache2
+
+`max_execution_time = 60 ` (default is 30)
+
+`memory_limit = 1024M ` (default is 128)
+
 Copy virtualhost files into `/etc/apache2/sites-available` and create symbolic links in `/etc/apache2/sites-enabled`
 
 ```sh
